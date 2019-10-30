@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from "react";
 import cloneAndParseContent from "../utils/cloneAndParseContent";
-import HomePage from "../components/Home";
+import BlogPostPage from "../components/BlogPost";
 
 type Props = {
-  pageContext: {
-    blok: any;
-    blogPosts: any;
-  };
+  pageContext: any;
+  data: any;
 };
 
-export default function Home(props: Props) {
+export default function BlogPost(props: Props) {
   const [blok, setBlok] = useState();
 
   useEffect(() => {
@@ -18,13 +16,5 @@ export default function Home(props: Props) {
   }, [props.pageContext]);
 
   if (!blok) return null;
-
-  return (
-    <HomePage
-      blok={blok}
-      blogPosts={props.pageContext.blogPosts.map(post =>
-        cloneAndParseContent(post)
-      )}
-    />
-  );
+  return <BlogPostPage blok={blok} />;
 }

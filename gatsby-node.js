@@ -4,26 +4,23 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
   return new Promise((resolve, reject) => {
-    const storyblokEntry = path.resolve("src/templates/storyblok-entry.js");
     const homeEntry = path.resolve("src/templates/Home.tsx");
+    const blogPostEntry = path.resolve("src/templates/BlogPost.tsx");
 
     resolve(
       graphql(
         `
           {
-            allStoryblokEntry {
+            storyblokEntry(name: { eq: "Home" }) {
+              name
+              content
+            }
+            allStoryblokEntry(filter: { field_component: { eq: "blogPost" } }) {
               edges {
                 node {
-                  id
-                  name
-                  created_at
-                  uuid
-                  slug
                   full_slug
+                  name
                   content
-                  is_startpage
-                  parent_id
-                  group_id
                 }
               }
             }
@@ -35,18 +32,26 @@ exports.createPages = ({ graphql, actions }) => {
           reject(result.errors);
         }
 
-        const entries = result.data.allStoryblokEntry.edges;
-        entries.forEach((entry, index) => {
-          let pagePath =
-            entry.node.full_slug == "home" ? "" : `${entry.node.full_slug}/`;
-
+        // create blog posts
+        const blogPosts = result.data.allStoryblokEntry.edges;
+        blogPosts.forEach(blogPost => {
           createPage({
-            path: `/${pagePath}`,
-            component: homeEntry,
+            path: `/${blogPost.node.full_slug}`,
+            component: blogPostEntry,
             context: {
-              story: entry.node
+              blok: blogPost.node
             }
           });
+        });
+
+        // create home page
+        createPage({
+          path: `/`,
+          component: homeEntry,
+          context: {
+            blok: result.data.storyblokEntry,
+            blogPosts: blogPosts.map(post => post.node)
+          }
         });
       })
     );
