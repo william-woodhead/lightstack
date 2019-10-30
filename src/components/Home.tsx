@@ -8,9 +8,7 @@ import Page from "./Page";
 
 type Props = {
   blogPosts: any;
-  blok: {
-    content: SbEditableContent;
-  };
+  blok: SbEditableContent;
 };
 
 export default function Home(props: Props) {
@@ -18,9 +16,9 @@ export default function Home(props: Props) {
     <Layout>
       <SEO title="Home" />
       <Hero />
-      <Page blok={props.blok.content} />
+      <Page blok={props.blok} />
       {props.blogPosts.map(blogPost => {
-        return <Card card={blogPost} />;
+        return <Card key={blogPost.full_slug} blok={blogPost} />;
       })}
     </Layout>
   );
