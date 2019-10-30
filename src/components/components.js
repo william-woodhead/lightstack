@@ -1,14 +1,12 @@
-import Page from "./page";
-import Grid from "./grid";
-import Teaser from "./teaser";
-import Feature from "./feature";
-import ComponentNotFound from "./component_not_found";
+import Page from "./Page";
+import Quote from "./Quote";
+import RichText from "./RichText";
+import ComponentNotFound from "./ComponentNotFound";
 
 const ComponentList = {
   page: Page,
-  grid: Grid,
-  teaser: Teaser,
-  feature: Feature
+  quote: Quote,
+  richText: RichText
 };
 
 const Components = type => {

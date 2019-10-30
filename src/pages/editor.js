@@ -1,13 +1,15 @@
-import * as React from "react";
+import React from "react";
 import Components from "../components/components.js";
 import SbEditable from "storyblok-react";
 import config from "../../gatsby-config";
 
-const sbConfigs = config.plugins.filter(item => {
+// get the plugin
+let sbConfigs = config.plugins.filter(item => {
   return item.resolve === "gatsby-source-storyblok";
 });
-const sbConfig = sbConfigs.length > 0 ? sbConfigs[0] : {};
+let sbConfig = sbConfigs.length > 0 ? sbConfigs[0] : {};
 
+// load the storyblok bridge file
 const loadStoryblokBridge = function(cb) {
   let script = document.createElement("script");
   script.type = "text/javascript";
@@ -16,6 +18,7 @@ const loadStoryblokBridge = function(cb) {
   document.getElementsByTagName("head")[0].appendChild(script);
 };
 
+// get the params from the search
 const getParam = function(val) {
   var result = "";
   var tmp = [];
@@ -48,7 +51,7 @@ class StoryblokEntry extends React.Component {
   loadStory() {
     window.storyblok.get(
       {
-        slug: window.storyblok.getParam("path"),
+        slug: getParam("path"),
         version: "draft",
         resolve_relations: sbConfig.options.resolveRelations || []
       },
@@ -59,12 +62,12 @@ class StoryblokEntry extends React.Component {
   }
 
   initStoryblokEvents() {
-    this.loadStory();
+    this.loadStory({ storyId: getParam("path") });
 
     let sb = window.storyblok;
 
     sb.on(["change", "published"], payload => {
-      this.loadStory();
+      this.loadStory(payload);
     });
 
     sb.on("input", payload => {
@@ -89,7 +92,7 @@ class StoryblokEntry extends React.Component {
       return <div></div>;
     }
 
-    let content = this.state.story.content;
+    let { content } = this.state.story;
 
     return (
       <SbEditable content={content}>
