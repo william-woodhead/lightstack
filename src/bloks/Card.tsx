@@ -1,10 +1,9 @@
 import React from "react";
 import { Link } from "gatsby";
-import { SbEditableContent } from "storyblok-react";
 import transformStoryblokImage from "../utils/transformStoryblokImage";
 
 type Props = {
-  blok: SbEditableContent & {
+  blok: {
     full_slug: string;
     content: {
       title: string;

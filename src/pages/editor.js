@@ -1,5 +1,5 @@
 import React from "react";
-import Components from "../components/components.js";
+import Components from "../components/components";
 import SbEditable from "storyblok-react";
 import config from "../../gatsby-config";
 
@@ -99,7 +99,7 @@ class StoryblokEntry extends React.Component {
         <div>
           {React.createElement(Components(content.component), {
             key: content._uid,
-            blok: content
+            content
           })}
         </div>
       </SbEditable>

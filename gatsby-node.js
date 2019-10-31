@@ -39,7 +39,7 @@ exports.createPages = ({ graphql, actions }) => {
             path: `/${blogPost.node.full_slug}`,
             component: blogPostEntry,
             context: {
-              blok: blogPost.node
+              blogPost: blogPost.node
             }
           });
         });
@@ -49,7 +49,7 @@ exports.createPages = ({ graphql, actions }) => {
           path: `/`,
           component: homeEntry,
           context: {
-            blok: result.data.storyblokEntry,
+            home: result.data.storyblokEntry,
             blogPosts: blogPosts.map(post => post.node)
           }
         });

@@ -1,14 +1,13 @@
 import React from "react";
-import { SbEditableContent } from "storyblok-react";
 import Layout from "./Layout";
 import Hero from "../components/Hero";
 import SEO from "../components/seo";
-import Card from "../components/Card";
+import Card from "../bloks/Card";
 import Page from "./Page";
 
 type Props = {
+  content: any;
   blogPosts: any;
-  blok: SbEditableContent;
 };
 
 export default function Home(props: Props) {
@@ -16,7 +15,7 @@ export default function Home(props: Props) {
     <Layout>
       <SEO title="Home" />
       <Hero />
-      <Page blok={props.blok} />
+      <Page content={props.content} />
       {props.blogPosts.map(blogPost => {
         return <Card key={blogPost.full_slug} blok={blogPost} />;
       })}

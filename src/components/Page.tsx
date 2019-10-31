@@ -1,10 +1,9 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
-import { SbEditableContent } from "storyblok-react";
-import Components from "./components.js";
+import Components from "./components";
 
 type Props = {
-  blok: SbEditableContent;
+  content: any;
 };
 
 const useStyles = createUseStyles({
@@ -17,11 +16,11 @@ export default function Page(props: Props) {
   const classes = useStyles();
   return (
     <div className={classes.page}>
-      {props.blok.body &&
-        props.blok.body.map(blok =>
+      {props.content.body &&
+        props.content.body.map(blok =>
           React.createElement(Components(blok.component), {
             key: blok._uid,
-            blok: blok
+            blok
           })
         )}
     </div>

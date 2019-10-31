@@ -4,24 +4,24 @@ import HomePage from "../components/Home";
 
 type Props = {
   pageContext: {
-    blok: any;
+    home: any;
     blogPosts: any;
   };
 };
 
 export default function Home(props: Props) {
-  const [blok, setBlok] = useState();
+  const [home, setHome] = useState();
 
   useEffect(() => {
-    const blok = cloneAndParseContent(props.pageContext.blok);
-    setBlok(blok);
+    const home = cloneAndParseContent(props.pageContext.home);
+    setHome(home);
   }, [props.pageContext]);
 
-  if (!blok) return null;
+  if (!home) return null;
 
   return (
     <HomePage
-      blok={blok}
+      content={home.content}
       blogPosts={props.pageContext.blogPosts.map(post =>
         cloneAndParseContent(post)
       )}

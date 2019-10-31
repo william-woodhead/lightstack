@@ -3,18 +3,19 @@ import cloneAndParseContent from "../utils/cloneAndParseContent";
 import BlogPostPage from "../components/BlogPost";
 
 type Props = {
-  pageContext: any;
-  data: any;
+  pageContext: {
+    blogPost: any;
+  };
 };
 
 export default function BlogPost(props: Props) {
-  const [blok, setBlok] = useState();
+  const [blogPost, setBlogPost] = useState();
 
   useEffect(() => {
-    const blok = cloneAndParseContent(props.pageContext.blok);
-    setBlok(blok);
+    const blogPost = cloneAndParseContent(props.pageContext.blogPost);
+    setBlogPost(blogPost);
   }, [props.pageContext]);
 
-  if (!blok) return null;
-  return <BlogPostPage blok={blok} />;
+  if (!blogPost) return null;
+  return <BlogPostPage content={blogPost.content} />;
 }
