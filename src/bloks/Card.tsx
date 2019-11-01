@@ -15,28 +15,34 @@ type Props = {
 };
 
 const useStyles = createUseStyles({
+  link: {
+    textDecoration: "none",
+    color: "black"
+  },
   card: {
-    padding: 16,
-    boxShadow: "2px 2px 4px rgba(0,0,0,0.1)",
-    borderRadius: 4
+    paddingTop: 8,
+    borderRadius: 4,
+    boxShadow: "2px 2px 4px 2px rgba(0,0,0,0.2)"
   },
   header: {
-    textDecoration: "none"
+    fontSize: "2.4rem",
+    padding: `0 8px`
   },
   subheader: {
-    textDecoration: "none"
+    padding: `0 8px`,
+    color: "#434343"
   }
 });
 
 export default function Card(props: Props) {
   const classes = useStyles();
   return (
-    <Link to={props.blok.full_slug}>
+    <Link to={props.blok.full_slug} className={classes.link}>
       <div className={classes.card}>
         <h1 className={classes.header}>{props.blok.content.title}</h1>
         <h2 className={classes.subheader}>{props.blok.content.description}</h2>
         <img
-          src={transformStoryblokImage(props.blok.content.image, "200x200")}
+          src={transformStoryblokImage(props.blok.content.image, "300x300")}
         />
       </div>
     </Link>
