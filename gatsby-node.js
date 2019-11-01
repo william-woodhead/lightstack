@@ -20,6 +20,7 @@ exports.createPages = ({ graphql, actions }) => {
                 node {
                   full_slug
                   name
+                  published_at
                   content
                 }
               }

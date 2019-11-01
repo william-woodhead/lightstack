@@ -11,7 +11,12 @@ type Props = {
 
 const useStyles = createUseStyles({
   quote: {
-    fontWeight: "bold"
+    fontWeight: "bold",
+    fontSize: "2rem",
+    fontStyle: "italic"
+  },
+  quotationMark: {
+    fontSize: "6rem"
   }
 });
 
@@ -20,7 +25,8 @@ export default function Quote(props: Props) {
   return (
     <SbEditable content={props.blok}>
       <div className={classes.quote}>
-        {props.blok.text} - {props.blok.author}
+        <span className={classes.quotationMark}>"</span> {props.blok.text} -{" "}
+        {props.blok.author}
       </div>
     </SbEditable>
   );

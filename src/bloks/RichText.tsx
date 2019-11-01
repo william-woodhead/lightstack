@@ -13,7 +13,7 @@ type Props = {
 
 const useStyles = createUseStyles({
   richText: {
-    fontWeight: "bold"
+    fontSize: "1.8rem"
   }
 });
 
@@ -22,6 +22,7 @@ export default function RichText(props: Props) {
   return (
     <SbEditable content={props.blok}>
       <div
+        className={classes.richText}
         dangerouslySetInnerHTML={{
           __html: (Api.richTextResolver.render(
             props.blok.text

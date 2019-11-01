@@ -11,9 +11,16 @@ type Props = {
 
 const useStyles = createUseStyles({
   image: {
-    fontWeight: "bold"
+    fontWeight: "bold",
+    maxWidth: "100%"
   },
-  caption: {}
+  caption: {
+    width: "100%",
+    display: "flex",
+    justifyContent: "center",
+    fontStyle: "italic",
+    fontSize: "1.4rem"
+  }
 });
 
 export default function ImageWithCaption(props: Props) {

@@ -21,7 +21,7 @@ export default function Home(props: Props) {
 
   return (
     <HomePage
-      content={home.content}
+      story={home}
       blogPosts={props.pageContext.blogPosts.map(post =>
         cloneAndParseContent(post)
       )}

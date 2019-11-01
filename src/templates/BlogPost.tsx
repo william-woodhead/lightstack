@@ -4,7 +4,12 @@ import BlogPostPage from "../components/BlogPost";
 
 type Props = {
   pageContext: {
-    blogPost: any;
+    blogPost: {
+      full_slug: string;
+      name: string;
+      published_at: string;
+      content: object;
+    };
   };
 };
 
@@ -17,5 +22,5 @@ export default function BlogPost(props: Props) {
   }, [props.pageContext]);
 
   if (!blogPost) return null;
-  return <BlogPostPage content={blogPost.content} />;
+  return <BlogPostPage story={blogPost} />;
 }

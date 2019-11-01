@@ -3,7 +3,7 @@ import { createUseStyles } from "react-jss";
 import Components from "./components";
 
 type Props = {
-  content: any;
+  body: any[];
 };
 
 const useStyles = createUseStyles({
@@ -16,8 +16,8 @@ export default function Page(props: Props) {
   const classes = useStyles();
   return (
     <div className={classes.page}>
-      {props.content.body &&
-        props.content.body.map(blok =>
+      {props.body &&
+        props.body.map(blok =>
           React.createElement(Components(blok.component), {
             key: blok._uid,
             blok

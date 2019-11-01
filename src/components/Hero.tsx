@@ -1,4 +1,5 @@
 import React from "react";
+import { createUseStyles } from "react-jss";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 
@@ -13,7 +14,15 @@ import Img from "gatsby-image";
  * - `useStaticQuery`: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
+const useStyles = createUseStyles({
+  image: {
+    width: "100%",
+    height: "100%"
+  }
+});
+
 export default function Hero() {
+  const classes = useStyles();
   const data = useStaticQuery(graphql`
     query {
       placeholderImage: file(relativePath: { eq: "hero-leaves.jpg" }) {
@@ -26,5 +35,10 @@ export default function Hero() {
     }
   `);
 
-  return <Img fluid={data.placeholderImage.childImageSharp.fluid} />;
+  return (
+    <Img
+      className={classes.image}
+      fluid={data.placeholderImage.childImageSharp.fluid}
+    />
+  );
 }

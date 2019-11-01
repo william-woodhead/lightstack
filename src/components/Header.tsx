@@ -1,17 +1,38 @@
 import { Link } from "gatsby";
+import { createUseStyles } from "react-jss";
 import React from "react";
 
 type Props = {
   siteTitle: string;
 };
 
+const useStyles = createUseStyles({
+  header: {
+    height: 60,
+    width: "100%",
+    fontSize: "2.8rem"
+  },
+  logo: {
+    marginLeft: 8
+  },
+  link: {
+    textDecoration: "none",
+    fontWeight: "bold",
+    color: "black",
+    letterSpacing: 6
+  }
+});
+
 export default function Header(props: Props) {
+  const classes = useStyles();
   return (
-    <header>
+    <header className={classes.header}>
       <div>
-        <h1>
-          <Link to="/">{props.siteTitle}</Link>
-        </h1>
+        <p className={classes.logo}>
+          <Link to="/" className={classes.link}>
+            {props.siteTitle}
+          </Link>
+        </p>
       </div>
     </header>
   );

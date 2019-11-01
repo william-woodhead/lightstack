@@ -9,13 +9,19 @@ import React from "react";
 import { createUseStyles } from "react-jss";
 import { useStaticQuery, graphql } from "gatsby";
 import Header from "./Header";
+import Footer from "./Footer";
 
 type Props = {
   children: any;
 };
 
 const useStyles = createUseStyles({
-  layout: {}
+  layout: {},
+  main: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center"
+  }
 });
 
 export default function Layout(props: Props) {
@@ -34,8 +40,8 @@ export default function Layout(props: Props) {
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
       <div className={classes.layout}>
-        <main>{props.children}</main>
-        <footer>Footer text</footer>
+        <main className={classes.main}>{props.children}</main>
+        <Footer />
       </div>
     </>
   );
