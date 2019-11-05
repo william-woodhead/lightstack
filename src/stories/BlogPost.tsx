@@ -43,29 +43,30 @@ const useStyles = createUseStyles({
 
 export default function BlogPost(props: Props) {
   const classes = useStyles();
-  console.log(props.story.content.author);
+  const { content } = props.story;
   return (
     <Layout>
       <Seo
-        title={props.story.content.title}
-        description={props.story.content.description}
+        title={content.title}
+        description={content.description}
         full_slug={props.story.full_slug}
         published_at={props.story.published_at}
+        authorName={content.author.name}
       />
       <Content>
-        <Author story={props.story.content.author} />
-        <h1 className={classes.header}>{props.story.content.title}</h1>
-        <h2 className={classes.subheader}>{props.story.content.description}</h2>
+        <Author story={content.author} />
+        <h1 className={classes.header}>{content.title}</h1>
+        <h2 className={classes.subheader}>{content.description}</h2>
       </Content>
       <img
         src={transformStoryblokImage(
-          props.story.content.image,
+          content.image,
           "1500x400/filters:focal(0x400:0x400)"
         )}
         className={classes.image}
       />
       <Content>
-        <Page body={props.story.content.body} />
+        <Page body={content.body} />
       </Content>
     </Layout>
   );

@@ -24,7 +24,14 @@ const useStyles = createUseStyles({
   card: {
     paddingTop: 8,
     borderRadius: 4,
-    boxShadow: "2px 2px 4px 2px rgba(0,0,0,0.2)"
+    maxWidth: 300,
+    boxShadow: "2px 2px 4px 2px rgba(0,0,0,0.2)",
+    margin: 8
+  },
+  texts: {
+    height: 140,
+    overflow: "hidden",
+    marginBottom: 8
   },
   header: {
     fontSize: "2.4rem",
@@ -42,8 +49,12 @@ export default function Card(props: Props) {
     <Link to={props.blok.full_slug} className={classes.link}>
       <div className={classes.card}>
         <Author story={props.blok.content.author} />
-        <h1 className={classes.header}>{props.blok.content.title}</h1>
-        <h2 className={classes.subheader}>{props.blok.content.description}</h2>
+        <div className={classes.texts}>
+          <h1 className={classes.header}>{props.blok.content.title}</h1>
+          <h2 className={classes.subheader}>
+            {props.blok.content.description}
+          </h2>
+        </div>
         <img
           src={transformStoryblokImage(props.blok.content.image, "300x300")}
         />

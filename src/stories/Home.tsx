@@ -1,4 +1,5 @@
 import React from "react";
+import { createUseStyles } from "react-jss";
 import Layout from "../components/Layout";
 import Hero from "../components/Hero";
 import Seo from "../components/Seo";
@@ -15,7 +16,14 @@ type Props = {
   blogPosts?: any;
 };
 
+const useStyles = createUseStyles({
+  cards: {
+    display: "flex"
+  }
+});
+
 export default function Home(props: Props) {
+  const classes = useStyles();
   return (
     <Layout>
       <Seo title="Home" />
@@ -23,10 +31,12 @@ export default function Home(props: Props) {
       <Content>
         <Page body={props.story.content.body} />
       </Content>
-      {props.blogPosts &&
-        props.blogPosts.map(blogPost => {
-          return <Card key={blogPost.full_slug} blok={blogPost} />;
-        })}
+      <div className={classes.cards}>
+        {props.blogPosts &&
+          props.blogPosts.map(blogPost => {
+            return <Card key={blogPost.full_slug} blok={blogPost} />;
+          })}
+      </div>
     </Layout>
   );
 }

@@ -62,8 +62,10 @@ export default function Seo(props: Props) {
       <meta property="og:type" content="article" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta property="og:site_name" content="Lightstack" />
-      <meta property="article:author" content={authorName} />
-      <meta property="article:publisher" content={"Lightstack"} />
+      {authorName && <meta property="article:author" content={authorName} />}
+      {authorName && (
+        <meta property="article:publisher" content={"Lightstack"} />
+      )}
       {published_at && (
         <meta property="article:published_time" content={published_at} />
       )}
