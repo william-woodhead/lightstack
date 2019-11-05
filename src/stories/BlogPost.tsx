@@ -1,10 +1,11 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
 import transformStoryblokImage from "../utils/transformStoryblokImage";
-import Layout from "./Layout";
-import Content from "./Content";
-import Seo from "./Seo";
-import Page from "./Body";
+import Layout from "../components/Layout";
+import Content from "../components/Content";
+import Author from "./Author";
+import Seo from "../components/Seo";
+import Page from "../components/Body";
 
 type Props = {
   story: {
@@ -15,6 +16,7 @@ type Props = {
       title: string;
       description: string;
       image: string;
+      author: any;
       body: any[];
     };
   };
@@ -25,10 +27,12 @@ const useStyles = createUseStyles({
     maxWidth: "100%"
   },
   header: {
-    fontSize: "5rem"
+    fontSize: "5rem",
+    color: "#222222"
   },
   subheader: {
-    fontSize: "3rem"
+    fontSize: "3rem",
+    color: "#444444"
   },
   content: {
     width: "100%",
@@ -39,6 +43,7 @@ const useStyles = createUseStyles({
 
 export default function BlogPost(props: Props) {
   const classes = useStyles();
+  console.log(props.story.content.author);
   return (
     <Layout>
       <Seo
@@ -48,6 +53,7 @@ export default function BlogPost(props: Props) {
         published_at={props.story.published_at}
       />
       <Content>
+        <Author story={props.story.content.author} />
         <h1 className={classes.header}>{props.story.content.title}</h1>
         <h2 className={classes.subheader}>{props.story.content.description}</h2>
       </Content>

@@ -1,10 +1,10 @@
 import React from "react";
-import Layout from "./Layout";
+import Layout from "../components/Layout";
 import Hero from "../components/Hero";
 import Seo from "../components/Seo";
+import Content from "../components/Content";
+import Page from "../components/Body";
 import Card from "../bloks/Card";
-import Content from "./Content";
-import Page from "./Body";
 
 type Props = {
   story: {

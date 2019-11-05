@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import cloneAndParseContent from "../utils/cloneAndParseContent";
-import HomePage from "../components/Home";
+import HomePage from "../stories/Home";
 
 type Props = {
   pageContext: {

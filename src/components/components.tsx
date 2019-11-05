@@ -2,9 +2,10 @@ import Body from "./Body";
 import Quote from "../bloks/Quote";
 import RichText from "../bloks/RichText";
 import ImageWithCaption from "../bloks/ImageWithCaption";
+import Author from "../stories/Author";
 import ComponentNotFound from "./ComponentNotFound";
-import BlogPost from "./BlogPost";
-import Home from "./Home";
+import BlogPost from "../stories/BlogPost";
+import Home from "../stories/Home";
 
 const ComponentList = {
   body: Body,
@@ -12,6 +13,7 @@ const ComponentList = {
   home: Home,
   quote: Quote,
   richText: RichText,
+  author: Author,
   imageWithCaption: ImageWithCaption
 };
 

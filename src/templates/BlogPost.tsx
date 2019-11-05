@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import cloneAndParseContent from "../utils/cloneAndParseContent";
-import BlogPostPage from "../components/BlogPost";
+import BlogPostPage from "../stories/BlogPost";
 
 type Props = {
   pageContext: {

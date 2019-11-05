@@ -29,6 +29,7 @@ module.exports = {
       options: {
         accessToken: "fKZN6q8tNIBZleMHCRe1kQtt",
         homeSlug: "/",
+        resolveRelations: ["blogPost.author"],
         // version: process.env.NODE_ENV === "production" ? "published" : "draft"
         version: "draft"
       }

@@ -2,6 +2,7 @@ import React from "react";
 import { createUseStyles } from "react-jss";
 import { Link } from "gatsby";
 import transformStoryblokImage from "../utils/transformStoryblokImage";
+import Author from "../stories/Author";
 
 type Props = {
   blok: {
@@ -10,6 +11,7 @@ type Props = {
       title: string;
       description: string;
       image: string;
+      author: any;
     };
   };
 };
@@ -39,6 +41,7 @@ export default function Card(props: Props) {
   return (
     <Link to={props.blok.full_slug} className={classes.link}>
       <div className={classes.card}>
+        <Author story={props.blok.content.author} />
         <h1 className={classes.header}>{props.blok.content.title}</h1>
         <h2 className={classes.subheader}>{props.blok.content.description}</h2>
         <img

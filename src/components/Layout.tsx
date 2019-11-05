@@ -16,7 +16,9 @@ type Props = {
 };
 
 const useStyles = createUseStyles({
-  layout: {},
+  layout: {
+    paddingTop: 24
+  },
   main: {
     display: "flex",
     flexDirection: "column",
