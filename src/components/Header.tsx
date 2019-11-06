@@ -25,7 +25,7 @@ const useStyles = createUseStyles({
   link: {
     textDecoration: "none",
     fontWeight: "bold",
-    color: "black",
+    color: theme.palette.textColor,
     letterSpacing: 6
   }
 });

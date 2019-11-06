@@ -12,7 +12,7 @@ type Props = {
 
 const useStyles = createUseStyles({
   richText: {
-    fontSize: "1.8rem"
+    fontSize: "2rem"
   }
 });
 

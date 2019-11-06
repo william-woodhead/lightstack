@@ -13,19 +13,20 @@ type Props = {
 const useStyles = createUseStyles({
   link: {
     textDecoration: "none",
-    color: "black"
+    color: theme.palette.textColor
+  },
+  image: {
+    maxWidth: 300,
+    width: "50%"
   },
   card: {
+    display: "flex",
     paddingTop: theme.spacing(1),
-    borderRadius: theme.shape.borderRadius,
-    maxWidth: 300,
-    boxShadow: "2px 2px 4px 2px rgba(0,0,0,0.2)",
     margin: theme.spacing(1)
   },
   texts: {
-    height: 140,
-    overflow: "hidden",
-    marginBottom: theme.spacing(1)
+    maxWidth: 600,
+    marginLeft: theme.spacing(1)
   },
   header: {
     fontSize: "2.4rem",
@@ -33,7 +34,8 @@ const useStyles = createUseStyles({
   },
   subheader: {
     padding: `0 ${theme.spacing(1)}px`,
-    color: theme.palette.common.black
+    color: theme.palette.textColor,
+    fontWeight: "normal"
   }
 });
 
@@ -45,12 +47,15 @@ export default function Card(props: Props) {
   return (
     <Link to={story.full_slug} className={classes.link}>
       <div className={classes.card}>
-        <Author story={content.author} />
+        <img
+          className={classes.image}
+          src={transformStoryblokImage(content.image, "300x300")}
+        />
         <div className={classes.texts}>
+          <Author story={content.author} />
           <h1 className={classes.header}>{content.title}</h1>
           <h2 className={classes.subheader}>{content.description}</h2>
         </div>
-        <img src={transformStoryblokImage(content.image, "300x300")} />
       </div>
     </Link>
   );

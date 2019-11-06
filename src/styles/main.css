@@ -2,12 +2,8 @@
 body {
   margin: 0;
   height: 100%;
-  font-family: "Montserrat", sans-serif;
-}
-
-h1,
-h2 {
-  font-family: "Playfair Display", serif;
+  font-family: "Noto Serif", serif;
+  color: #282828;
 }
 
 /* box sizing */

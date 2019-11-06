@@ -16,7 +16,8 @@ type Props = {
 
 const useStyles = createUseStyles({
   cards: {
-    display: "flex"
+    display: "flex",
+    flexDirection: "column"
   }
 });
 

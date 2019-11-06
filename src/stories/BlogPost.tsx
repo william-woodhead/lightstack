@@ -19,11 +19,13 @@ const useStyles = createUseStyles({
   },
   header: {
     fontSize: "5rem",
-    color: "#222222"
+    color: theme.palette.textColor
   },
   subheader: {
-    fontSize: "3rem",
-    color: "#444444"
+    fontSize: "2.2rem",
+    color: theme.palette.textColor,
+    fontWeight: "normal",
+    marginBottom: theme.spacing(4)
   },
   content: {
     width: "100%",

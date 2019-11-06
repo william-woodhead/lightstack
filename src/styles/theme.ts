@@ -6,7 +6,8 @@ export default {
     common: {
       black: "#333333",
       white: "#FFFFFF"
-    }
+    },
+    textColor: "#282828"
   },
   shape: {
     borderRadius: 4
