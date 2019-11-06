@@ -42,7 +42,10 @@ export type Quote = Blok & {
 };
 
 export type RichText = Blok & {
-  text: string;
+  text: {
+    type: "doc";
+    content: any[];
+  };
 };
 
 export type RichTextComponent = string;
