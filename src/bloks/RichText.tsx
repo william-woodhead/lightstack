@@ -3,6 +3,7 @@ import { createUseStyles } from "react-jss";
 import SbEditable, { SbEditableContent } from "storyblok-react";
 import Storyblok from "storyblok-js-client";
 import { RichText as RichTextType } from "../model/storyblok";
+import theme from "../styles/theme";
 
 const Api = new Storyblok({});
 
@@ -12,7 +13,8 @@ type Props = {
 
 const useStyles = createUseStyles({
   richText: {
-    fontSize: "2rem"
+    fontSize: "2rem",
+    color: theme.palette.textColor
   }
 });
 
