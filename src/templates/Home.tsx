@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import cloneAndParseContent from "../utils/cloneAndParseContent";
 import HomePage from "../stories/Home";
+import { Story, HomeContent } from "../model/storyblok";
+import { SiteMetadata } from "../model/site";
 
 type Props = {
   pageContext: {
-    home: any;
-    blogPosts: any;
+    siteMetadata: SiteMetadata;
+    home: Story<HomeContent>;
   };
 };
 
@@ -19,12 +21,5 @@ export default function Home(props: Props) {
 
   if (!home) return null;
 
-  return (
-    <HomePage
-      story={home}
-      blogPosts={props.pageContext.blogPosts.map(post =>
-        cloneAndParseContent(post)
-      )}
-    />
-  );
+  return <HomePage story={home} />;
 }

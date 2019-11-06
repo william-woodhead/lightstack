@@ -10,7 +10,7 @@ import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
 type Props = {
-  title: string;
+  title?: string;
   description?: string;
   meta?: string;
   full_slug?: string;
@@ -42,23 +42,24 @@ export default function Seo(props: Props) {
     `
   );
 
+  const metaTitle = title || site.siteMetadata.title;
   const metaDescription = description || site.siteMetadata.description;
 
   return (
     // @ts-ignore
     <Helmet>
-      <title>{title}</title>
-      <meta name="title" content={title} />
+      <title>{metaTitle}</title>
+      <meta name="title" content={metaTitle} />
       <meta name="referrer" content="origin" />
       <meta name="description" content={metaDescription} />
-      <meta property="og:title" content={title} />
+      <meta property="og:title" content={metaTitle} />
       <meta property="og:url" content={full_slug} />
       {image && <meta property="og:image" content={image} />}
       {image && <meta name="twitter:image" content={image} />}
       {image && <meta name="twitter:image:src" content={image} />}
       <meta property="og:description" content={metaDescription} />
       <meta name="twitter:description" content={metaDescription} />
-      <meta name="twitter:text:title" content={title} />
+      <meta name="twitter:text:title" content={metaTitle} />
       <meta property="og:type" content="article" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta property="og:site_name" content="Lightstack" />

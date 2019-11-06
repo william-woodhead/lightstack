@@ -50,8 +50,7 @@ exports.createPages = ({ graphql, actions }) => {
           path: `/`,
           component: homeEntry,
           context: {
-            home: result.data.storyblokEntry,
-            blogPosts: blogPosts.map(post => post.node)
+            home: result.data.storyblokEntry
           }
         });
       })

@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from "react";
 import cloneAndParseContent from "../utils/cloneAndParseContent";
 import BlogPostPage from "../stories/BlogPost";
+import { Story, BlogPostContent } from "../model/storyblok";
 
 type Props = {
   pageContext: {
-    blogPost: {
-      full_slug: string;
-      name: string;
-      published_at: string;
-      content: object;
-    };
+    blogPost: Story<BlogPostContent>;
   };
 };
 

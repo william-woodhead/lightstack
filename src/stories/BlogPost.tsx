@@ -6,20 +6,11 @@ import Content from "../components/Content";
 import Author from "./Author";
 import Seo from "../components/Seo";
 import Page from "../components/Body";
+import { Story, BlogPostContent } from "../model/storyblok";
+import theme from "../styles/theme";
 
 type Props = {
-  story: {
-    full_slug: string;
-    published_at: string;
-    name: string;
-    content: {
-      title: string;
-      description: string;
-      image: string;
-      author: any;
-      body: any[];
-    };
-  };
+  story: Story<BlogPostContent>;
 };
 
 const useStyles = createUseStyles({
@@ -37,7 +28,7 @@ const useStyles = createUseStyles({
   content: {
     width: "100%",
     maxWidth: 700,
-    padding: `0 16px`
+    padding: `0 ${theme.spacing(2)}px`
   }
 });
 

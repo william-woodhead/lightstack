@@ -2,13 +2,15 @@ import React from "react";
 import { createUseStyles } from "react-jss";
 import SbEditable, { SbEditableContent } from "storyblok-react";
 import Storyblok from "storyblok-js-client";
+import { RichText as RichTextType } from "../model/storyblok";
+import richTextResolver from "./richTextResolver";
 
 const Api = new Storyblok({});
 
+Api.setComponentResolver(richTextResolver);
+
 type Props = {
-  blok: SbEditableContent & {
-    text: string;
-  };
+  blok: SbEditableContent & RichTextType;
 };
 
 const useStyles = createUseStyles({

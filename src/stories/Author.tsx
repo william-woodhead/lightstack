@@ -1,15 +1,11 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
 import transformStoryblokImage from "../utils/transformStoryblokImage";
+import { Story, AuthorContent } from "../model/storyblok";
+import theme from "../styles/theme";
 
 type Props = {
-  story: {
-    content: {
-      name: string;
-      image: string;
-      jobTitle: string;
-    };
-  };
+  story: Story<AuthorContent>;
 };
 
 const useStyles = createUseStyles({
@@ -22,7 +18,7 @@ const useStyles = createUseStyles({
     height: 60,
     width: 60,
     borderRadius: "50%",
-    marginRight: 8
+    marginRight: theme.spacing(1)
   },
   name: {},
   jobTitle: {}

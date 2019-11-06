@@ -99,7 +99,8 @@ class StoryblokEntry extends React.Component {
         <div>
           {React.createElement(Components(content.component), {
             key: content.id,
-            story: this.state.story
+            story: this.state.story,
+            siteMetadata: {}
           })}
         </div>
       </SbEditable>

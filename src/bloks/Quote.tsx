@@ -1,12 +1,10 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
 import SbEditable, { SbEditableContent } from "storyblok-react";
+import { Quote as QuoteType } from "../model/storyblok";
 
 type Props = {
-  blok: SbEditableContent & {
-    text: string;
-    author?: string;
-  };
+  blok: SbEditableContent & QuoteType;
 };
 
 const useStyles = createUseStyles({

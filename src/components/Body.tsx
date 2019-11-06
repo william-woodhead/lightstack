@@ -1,14 +1,16 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
 import Components from "./components";
+import theme from "../styles/theme";
+import { Blok } from "../model/storyblok";
 
 type Props = {
-  body: any[];
+  body: Blok[];
 };
 
 const useStyles = createUseStyles({
   page: {
-    padding: 24
+    padding: theme.spacing(4)
   }
 });
 

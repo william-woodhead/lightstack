@@ -1,12 +1,10 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
 import SbEditable, { SbEditableContent } from "storyblok-react";
+import { ImageWithCaption as ImageWithCaptionType } from "../model/storyblok";
 
 type Props = {
-  blok: SbEditableContent & {
-    image: string;
-    caption?: string;
-  };
+  blok: SbEditableContent & ImageWithCaptionType;
 };
 
 const useStyles = createUseStyles({

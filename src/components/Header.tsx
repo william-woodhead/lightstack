@@ -1,6 +1,7 @@
 import { Link } from "gatsby";
 import { createUseStyles } from "react-jss";
 import React from "react";
+import theme from "../styles/theme";
 
 type Props = {
   siteTitle: string;
@@ -19,7 +20,7 @@ const useStyles = createUseStyles({
     boxShadow: "2px 0px 2px 2px rgba(0,0,0,.1)"
   },
   logo: {
-    marginLeft: 8
+    marginLeft: theme.spacing(1)
   },
   link: {
     textDecoration: "none",
