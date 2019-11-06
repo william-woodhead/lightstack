@@ -2,42 +2,101 @@ import React from "react";
 import { createUseStyles } from "react-jss";
 import SbEditable, { SbEditableContent } from "storyblok-react";
 import Storyblok from "storyblok-js-client";
-import { Blok, RichText as RichTextType } from "../model/storyblok";
+import { RichText as RichTextType } from "../model/storyblok";
+import Body from "../components/Body";
+import Heading from "../richtext/Heading";
+import Marks from "../richtext/Marks";
 import theme from "../styles/theme";
 
 const Api = new Storyblok({});
 
-function renderRichTextBlok(blok, depth = 0) {
+function renderRichTextBlok(blok) {
   switch (blok.type) {
     case "doc":
-      return blok.content.map(subBlok => renderRichTextBlok(subBlok));
+      return (
+        blok.content && blok.content.map(subBlok => renderRichTextBlok(subBlok))
+      );
     case "paragraph":
-      return <p>{blok.content.map(subBlok => renderRichTextBlok(subBlok))}</p>;
-    case "text":
-      return <span>{blok.text}</span>;
-    case "ordered_list":
       return (
-        <ol>{blok.content.map(subBlok => renderRichTextBlok(subBlok))}</ol>
+        <p>
+          <Marks marks={blok.marks}>
+            {blok.content &&
+              blok.content.map(subBlok => renderRichTextBlok(subBlok))}
+          </Marks>
+        </p>
       );
-    case "unordered_list":
+    case "blockquote":
       return (
-        <ul>{blok.content.map(subBlok => renderRichTextBlok(subBlok))}</ul>
+        <blockquote>
+          <Marks marks={blok.marks}>
+            {blok.content &&
+              blok.content.map(subBlok => renderRichTextBlok(subBlok))}
+          </Marks>
+        </blockquote>
       );
-    case "list_item":
+    case "horizontal_rule":
       return (
-        <li>{blok.content.map(subBlok => renderRichTextBlok(subBlok))}</li>
+        <Marks marks={blok.marks}>
+          <hr />
+        </Marks>
       );
     case "heading":
       return (
-        <h1>
-          {blok.content &&
-            blok.content.map(subBlok => renderRichTextBlok(subBlok))}
-        </h1>
+        <Heading level={blok.attrs.level}>
+          <Marks marks={blok.marks}>
+            {blok.content &&
+              blok.content.map(subBlok => renderRichTextBlok(subBlok))}
+          </Marks>
+        </Heading>
       );
     case "code_block":
       return (
-        <code>{blok.content.map(subBlok => renderRichTextBlok(subBlok))}</code>
+        <code>
+          <Marks marks={blok.marks}>
+            {blok.content &&
+              blok.content.map(subBlok => renderRichTextBlok(subBlok))}
+          </Marks>
+        </code>
       );
+    case "text":
+      return (
+        <span>
+          <Marks marks={blok.marks}>{blok.text}</Marks>
+        </span>
+      );
+    case "image":
+      return <img src={blok.attrs.src} alt={blok.attrs.alt} />;
+    case "hard_break":
+      return <br />;
+    case "ordered_list":
+      return (
+        <ol>
+          <Marks marks={blok.marks}>
+            {blok.content &&
+              blok.content.map(subBlok => renderRichTextBlok(subBlok))}
+          </Marks>
+        </ol>
+      );
+    case "bullet_list":
+      return (
+        <ul>
+          <Marks marks={blok.marks}>
+            {blok.content &&
+              blok.content.map(subBlok => renderRichTextBlok(subBlok))}
+          </Marks>
+        </ul>
+      );
+    case "list_item":
+      return (
+        <li>
+          <Marks marks={blok.marks}>
+            {blok.content &&
+              blok.content.map(subBlok => renderRichTextBlok(subBlok))}
+          </Marks>
+        </li>
+      );
+    case "blok":
+      return <Body body={blok.attrs.body} />;
   }
 }
 
