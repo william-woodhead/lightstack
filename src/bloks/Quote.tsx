@@ -23,8 +23,9 @@ export default function Quote(props: Props) {
   return (
     <SbEditable content={props.blok}>
       <div className={classes.quote}>
-        <span className={classes.quotationMark}>"</span> {props.blok.text} -{" "}
-        {props.blok.author}
+        <span className={classes.quotationMark}>"</span>
+        {props.blok.text}
+        {props.blok.author && ` - ${props.blok.author}`}
       </div>
     </SbEditable>
   );

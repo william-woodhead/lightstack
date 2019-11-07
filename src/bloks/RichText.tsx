@@ -6,6 +6,9 @@ import { RichText as RichTextType } from "../model/storyblok";
 import Body from "../components/Body";
 import Heading from "../richtext/Heading";
 import Marks from "../richtext/Marks";
+import CodeBlock from "../richtext/CodeBlock";
+import BlockQuote from "../richtext/BlockQuote";
+import Image from "../richtext/Image";
 import theme from "../styles/theme";
 
 const Api = new Storyblok({});
@@ -27,12 +30,12 @@ function renderRichTextBlok(blok) {
       );
     case "blockquote":
       return (
-        <blockquote>
+        <BlockQuote>
           <Marks marks={blok.marks}>
             {blok.content &&
               blok.content.map(subBlok => renderRichTextBlok(subBlok))}
           </Marks>
-        </blockquote>
+        </BlockQuote>
       );
     case "horizontal_rule":
       return (
@@ -51,12 +54,12 @@ function renderRichTextBlok(blok) {
       );
     case "code_block":
       return (
-        <code>
+        <CodeBlock>
           <Marks marks={blok.marks}>
             {blok.content &&
               blok.content.map(subBlok => renderRichTextBlok(subBlok))}
           </Marks>
-        </code>
+        </CodeBlock>
       );
     case "text":
       return (
@@ -65,7 +68,7 @@ function renderRichTextBlok(blok) {
         </span>
       );
     case "image":
-      return <img src={blok.attrs.src} alt={blok.attrs.alt} />;
+      return <Image src={blok.attrs.src} alt={blok.attrs.alt} />;
     case "hard_break":
       return <br />;
     case "ordered_list":
@@ -113,7 +116,6 @@ const useStyles = createUseStyles({
 
 export default function RichText(props: Props) {
   const classes = useStyles();
-  console.log(props.blok.text);
   return (
     <SbEditable content={props.blok}>
       <div className={classes.richText}>

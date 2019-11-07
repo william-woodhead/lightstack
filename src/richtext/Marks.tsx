@@ -1,4 +1,6 @@
 import React from "react";
+import { createUseStyles } from "react-jss";
+import theme from "../styles/theme";
 
 type Mark = {
   type: string;
@@ -10,6 +12,12 @@ type Props = {
   children?: any;
 };
 
+const useStyles = createUseStyles({
+  anchor: {
+    color: theme.palette.textColor
+  }
+});
+
 function marksHasType(marks, type) {
   return marks.reduce((result, mark) => {
     if (result) return result;
@@ -19,6 +27,7 @@ function marksHasType(marks, type) {
 }
 
 export default function Marks(props: Props) {
+  const classes = useStyles();
   const { marks, children } = props;
   if (!marks || !marks.length) {
     if (!children) return null;
@@ -41,7 +50,11 @@ export default function Marks(props: Props) {
   if (marksHasType(marks, "link")) {
     const link = marks.find(({ type }) => type === "link");
     result = (
-      <a href={link.attrs.href} target={link.attrs.target}>
+      <a
+        className={classes.anchor}
+        href={link.attrs.href}
+        target={link.attrs.target}
+      >
         {result}
       </a>
     );
