@@ -5,6 +5,7 @@ import Img from "gatsby-image";
 
 const useStyles = createUseStyles({
   hero: {
+    position: "relative",
     width: "100%",
     overflow: "hidden"
   },

@@ -8,9 +8,7 @@ type Props = {
 };
 
 const useStyles = createUseStyles({
-  layout: {
-    paddingTop: 24
-  },
+  layout: {},
   main: {
     display: "flex",
     flexDirection: "column",
