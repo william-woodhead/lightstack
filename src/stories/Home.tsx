@@ -5,7 +5,7 @@ import Layout from "../components/Layout";
 import Hero from "../components/Hero";
 import Seo from "../components/Seo";
 import Content from "../components/Content";
-import Page from "../components/Body";
+import Body from "../components/Body";
 import Card from "../components/Card";
 import { Story, HomeContent } from "../model/storyblok";
 import cloneAndParseContent from "../utils/cloneAndParseContent";
@@ -46,7 +46,7 @@ export default function Home(props: Props) {
       <Seo full_slug={props.story.full_slug} />
       <Hero />
       <Content>
-        <Page body={props.story.content.body} />
+        <Body body={props.story.content.body} />
       </Content>
       <div className={classes.cards}>
         {blogPosts &&

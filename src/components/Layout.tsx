@@ -2,13 +2,19 @@ import React from "react";
 import { createUseStyles } from "react-jss";
 import { useStaticQuery, graphql } from "gatsby";
 import Header from "./Header";
+import theme from "../styles/theme";
 
 type Props = {
   children: any;
 };
 
 const useStyles = createUseStyles({
-  layout: {},
+  layout: {
+    fontSize: "1.2rem",
+    [theme.breakpoints.up("md")]: {
+      fontSize: "1.8rem"
+    }
+  },
   main: {
     display: "flex",
     flexDirection: "column",

@@ -16,8 +16,7 @@ const useStyles = createUseStyles({
     width: "100%",
     display: "flex",
     justifyContent: "center",
-    fontStyle: "italic",
-    fontSize: "1.4rem"
+    fontStyle: "italic"
   }
 });
 

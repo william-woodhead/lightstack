@@ -9,15 +9,15 @@ type Props = {
 };
 
 const useStyles = createUseStyles({
-  page: {
-    padding: theme.spacing(4)
+  body: {
+    width: "100%"
   }
 });
 
-export default function Page(props: Props) {
+export default function Body(props: Props) {
   const classes = useStyles();
   return (
-    <div className={classes.page}>
+    <div className={classes.body}>
       {props.body &&
         props.body.map(blok =>
           React.createElement(Components(blok.component), {

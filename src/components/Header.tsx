@@ -13,8 +13,9 @@ const useStyles = createUseStyles({
     alignItems: "center",
     height: 60,
     width: "100%",
-    fontSize: "2.8rem",
+    fontSize: "2.8em",
     position: "sticky",
+    zIndex: 20,
     top: 0,
     background: "#FFFFFF",
     boxShadow: "2px 0px 2px 2px rgba(0,0,0,.1)"

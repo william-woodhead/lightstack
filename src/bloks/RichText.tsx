@@ -109,7 +109,7 @@ type Props = {
 
 const useStyles = createUseStyles({
   richText: {
-    fontSize: "2rem",
+    width: "100%",
     color: theme.palette.textColor
   }
 });

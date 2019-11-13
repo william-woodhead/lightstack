@@ -14,7 +14,7 @@ const useStyles = createUseStyles({
     height: "100%"
   },
   title: {
-    fontSize: "3rem",
+    fontSize: "2em",
     position: "absolute",
     top: "50%",
     width: "100%",

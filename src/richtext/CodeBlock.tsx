@@ -13,8 +13,9 @@ const useStyles = createUseStyles({
     background: "#f2f2f2",
     padding: theme.spacing(2),
     fontSize: "0.85em",
-    whiteSpace: "pre-wrap",
-    margin: `${theme.spacing(6)}px 0`
+    whiteSpace: "pre",
+    margin: `${theme.spacing(6)}px 0`,
+    overflowX: "scroll"
   }
 });
 
