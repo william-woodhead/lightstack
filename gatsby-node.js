@@ -18,6 +18,7 @@ exports.createPages = ({ graphql, actions }) => {
             allStoryblokEntry(filter: { field_component: { eq: "blogPost" } }) {
               edges {
                 node {
+                  id
                   full_slug
                   name
                   published_at

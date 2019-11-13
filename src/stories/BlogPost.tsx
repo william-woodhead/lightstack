@@ -1,11 +1,13 @@
 import React from "react";
 import { createUseStyles } from "react-jss";
+import { useStaticQuery, graphql } from "gatsby";
 import transformStoryblokImage from "../utils/transformStoryblokImage";
 import Layout from "../components/Layout";
 import Content from "../components/Content";
 import Author from "./Author";
 import Seo from "../components/Seo";
 import Body from "../components/Body";
+import Cards from "../components/Cards";
 import { Story, BlogPostContent } from "../model/storyblok";
 import theme from "../styles/theme";
 
@@ -47,7 +49,32 @@ const useStyles = createUseStyles({
 
 export default function BlogPost(props: Props) {
   const classes = useStyles();
-  const { content } = props.story;
+  const { content, id } = props.story;
+  const data = useStaticQuery(
+    graphql`
+      query {
+        allStoryblokEntry(
+          filter: { field_component: { eq: "blogPost" } }
+          limit: 3
+          sort: { fields: first_published_at }
+        ) {
+          edges {
+            node {
+              id
+              full_slug
+              name
+              published_at
+              content
+            }
+          }
+        }
+      }
+    `
+  );
+  // remove the current post from the blog list
+  const blogPosts = data.allStoryblokEntry.edges.filter(
+    ({ node }) => node.id !== id
+  );
   return (
     <Layout>
       <Seo
@@ -76,6 +103,9 @@ export default function BlogPost(props: Props) {
       <Content>
         <Body body={content.body} />
       </Content>
+      <hr />
+      <h2>Other Posts</h2>
+      <Cards cards={blogPosts} />
     </Layout>
   );
 }

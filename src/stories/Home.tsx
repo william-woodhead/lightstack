@@ -6,24 +6,14 @@ import Hero from "../components/Hero";
 import Seo from "../components/Seo";
 import Content from "../components/Content";
 import Body from "../components/Body";
-import Card from "../components/Card";
+import Cards from "../components/Cards";
 import { Story, HomeContent } from "../model/storyblok";
-import cloneAndParseContent from "../utils/cloneAndParseContent";
 
 type Props = {
   story: Story<HomeContent>;
 };
 
-const useStyles = createUseStyles({
-  cards: {
-    display: "flex",
-    flexDirection: "column"
-  }
-});
-
 export default function Home(props: Props) {
-  const classes = useStyles();
-
   const data = useStaticQuery(
     graphql`
       query {
@@ -48,13 +38,7 @@ export default function Home(props: Props) {
       <Content>
         <Body body={props.story.content.body} />
       </Content>
-      <div className={classes.cards}>
-        {blogPosts &&
-          blogPosts.map(({ node }) => {
-            const blogPost = cloneAndParseContent(node);
-            return <Card key={blogPost.full_slug} story={blogPost} />;
-          })}
-      </div>
+      <Cards cards={blogPosts} />
     </Layout>
   );
 }

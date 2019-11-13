@@ -1,4 +1,5 @@
 export type Story<T extends Content> = {
+  id: string;
   full_slug: string;
   published_at: string;
   name: string;
