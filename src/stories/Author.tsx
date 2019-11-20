@@ -30,7 +30,7 @@ export default function Author(props: Props) {
   return (
     <div className={classnames(classes.author, props.className)}>
       <img
-        src={transformStoryblokImage(props.story.content.image, "60x60")}
+        src={transformStoryblokImage(props.story.content.image, "200x200")}
         className={classes.image}
       />
       <div>

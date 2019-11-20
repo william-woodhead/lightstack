@@ -36,14 +36,16 @@ export default function Seo(props: Props) {
           siteMetadata {
             title
             description
+            origin
           }
         }
       }
     `
   );
 
-  const metaTitle = title || site.siteMetadata.title;
-  const metaDescription = description || site.siteMetadata.description;
+  const { siteMetadata } = site;
+  const metaTitle = title || siteMetadata.title;
+  const metaDescription = description || siteMetadata.description;
 
   return (
     // @ts-ignore
@@ -53,7 +55,7 @@ export default function Seo(props: Props) {
       <meta name="referrer" content="origin" />
       <meta name="description" content={metaDescription} />
       <meta property="og:title" content={metaTitle} />
-      <meta property="og:url" content={full_slug} />
+      <meta property="og:url" content={`${siteMetadata.origin}/${full_slug}`} />
       {image && <meta property="og:image" content={image} />}
       {image && <meta name="twitter:image" content={image} />}
       {image && <meta name="twitter:image:src" content={image} />}

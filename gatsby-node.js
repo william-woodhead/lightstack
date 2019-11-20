@@ -58,3 +58,12 @@ exports.createPages = ({ graphql, actions }) => {
     );
   });
 };
+
+// this is so that the dotenv require in gatsby-config doesnt throw an 'fs' error
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    node: {
+      fs: "empty"
+    }
+  });
+};
