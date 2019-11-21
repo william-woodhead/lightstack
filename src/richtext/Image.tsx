@@ -11,6 +11,7 @@ const useStyles = createUseStyles({
   wrapper: {
     width: "100%",
     display: "flex",
+    alignItems: "flex-start",
     justifyContent: "center"
   },
   image: {
