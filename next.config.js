@@ -10,6 +10,10 @@ const nextConfig = {
             key: 'set-cookie',
             value: 'hello=there',
           },
+          {
+            key: 'Link',
+            value: '<https://www.lightstack.co.uk/manifest.txt>; rel="prefetch"',
+          }
         ],
       },
     ]
