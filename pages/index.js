@@ -12,6 +12,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <img src="/panda.webp" />
+        <img src="/panda2.jpeg" />
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
