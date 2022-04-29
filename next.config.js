@@ -13,6 +13,10 @@ const nextConfig = {
           {
             key: 'Link',
             value: '<https://www.lightstack.co.uk/manifest.txt>; rel="prefetch"',
+          },
+          {
+            "key" : "Cache-Control",
+            "value" : "public, max-age=300"
           }
         ],
       },
