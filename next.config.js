@@ -15,15 +15,6 @@ const nextConfig = {
             value: '<https://www.lightstack.co.uk/manifest.txt>; rel="prefetch"',
           },
         ],
-      },
-      {
-        source: '/panda.webp',
-        headers: [
-          {
-            "key" : "Cache-Control",
-            "value" : "public, max-age=300"
-          }
-        ]
       }
     ]
   }
