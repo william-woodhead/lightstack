@@ -38,7 +38,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ github.sha }}
+          tags: '***/lightstack:${{ github.sha }}'
           labels: ${{ steps.meta.outputs.labels }}
 
       - uses: 'google-github-actions/auth@v2'
