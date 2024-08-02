@@ -2,7 +2,7 @@
 FROM node:slim
 
 # Declaring env
-ENV NODE_ENV development
+ENV NODE_ENV production
 
 # Setting up the work directory
 WORKDIR /express-docker
