@@ -11,6 +11,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
+        <div className="cf-turnstile" data-sitekey="0x4AAAAAAAgW_cDgFssvpUmI" />
         <img src="/panda.webp" />
         <img src="/panda2.jpeg" />
         <h1 className={styles.title}>

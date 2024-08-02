@@ -7,6 +7,7 @@ export default function Document() {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
         <link href="https://fonts.googleapis.com/css?family=Sen:regular,700,300%7CAveria%20Serif%20Libre:regular,700,300%7CZilla%20Slab:regular%7CLora:regular&display=swap" rel="stylesheet" />
+        <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
       </Head>
       <body>
         <Main />
