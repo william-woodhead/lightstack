@@ -4,7 +4,6 @@
 - Created Dockerhub account {app|hub}.docker.com with w.woodhead@hotmail.com
     - created repo williamwoodhead/lightstack
     - created Access Token on dockerhub called "Lightstack - Read/Write - for Github Actions & localhost" (see secrets.txt)
-    - created Access Token on dockerhub called "Lightstack - Read-Only - for GCP" (see secrets.txt)
 - Github
     - changed default branch to main
     - added 2 secrets DOCKER_USERNAME & DOCKER_PASSWORD
