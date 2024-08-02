@@ -1,3 +1,0 @@
-/panda.webp
-/panda2.jpeg
-/tester
