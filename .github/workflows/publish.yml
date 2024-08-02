@@ -7,7 +7,7 @@ on:
 
 jobs:
   push_to_registry:
-    name: Push Docker image to Docker Hub
+    name: Push Docker image to Docker Hub and Cloud Run
     runs-on: ubuntu-latest
     permissions:
       packages: write
@@ -38,7 +38,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: ${{ github.sha }}
           labels: ${{ steps.meta.outputs.labels }}
 
       - uses: 'google-github-actions/auth@v2'
@@ -50,7 +50,7 @@ jobs:
         uses: 'google-github-actions/deploy-cloudrun@v2'
         with:
           service: 'lightstack'
-          image: 'docker.io/williamwoodhead/lightstack:main'
+          image: 'docker.io/williamwoodhead/lightstack:${{ github.sha }}'
 
       - name: 'Use output'
         run: 'curl "${{ steps.deploy.outputs.url }}"'
