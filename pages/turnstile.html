@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
+    </head>
+    <body>
+        <h1>Turnstile testing</h1>
+        <form action="/turnstile" method="POST">
+            <input type="text" name="test-input" placeholder="some input"/>
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAAgW_cDgFssvpUmI"></div>
+            <button type="submit" value="Submit">Submit</button>
+         </form>
+    </body>
+</html>

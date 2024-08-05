@@ -8,3 +8,5 @@
 *.pem
 
 secrets.md
+
+.env

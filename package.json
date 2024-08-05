@@ -17,6 +17,11 @@
   },
   "homepage": "https://github.com/william-woodhead/lightstack#readme",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "express": "^4.19.2"
+  },
+  "engines" : { 
+    "npm" : ">=10.8",
+    "node" : ">=22.5"
   }
 }

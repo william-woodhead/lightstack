@@ -3,3 +3,5 @@
 dok
 $ docker build -f Dockerfile -t williamwoodhead/lightstack .
 $ docker run -d -p 3000:3000 williamwoodhead/lightstack:latest
+
+$ node --env-file=.env index.js
