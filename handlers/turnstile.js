@@ -9,7 +9,6 @@ module.exports = async (req, res) => {
 	const ip = req.header('CF-Connecting-IP');
   console.log("token", token);
   console.log("ip", ip);
-  console.log("SECRET_KEY", SECRET_KEY);
 	// Validate the token by calling the
 	// "/siteverify" API endpoint.
 	const url = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
