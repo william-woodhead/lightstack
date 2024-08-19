@@ -18,6 +18,7 @@
 - GCP
     - created secret in secret manager for LIGHTSTACK_TURNSTILE_SECRET_KEY
     - added Secret Manager Secret Accessor role to the service account responsible for Cloud Run: 308293636020-compute@developer.gserviceaccount.com
-
+- Cloudflare
+    - Added Rocket Loader config rule for /turnstile route
 
 
