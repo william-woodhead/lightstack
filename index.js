@@ -18,23 +18,23 @@ app.get('/turnstile', (req, res) => {
   res.sendFile(path.join(__dirname, "/pages/turnstile.html"));
 });
 
-app.get('/speculation-1', (req, res) => {
+app.get('/speculation', (req, res) => {
   res.set("Cache-Control", "public,max-age=120");
   setTimeout(() => {
-    res.sendFile(path.join(__dirname, "/pages/speculation-1.html"));
+    res.sendFile(path.join(__dirname, "/pages/speculation.html"));
   }, 2000);
 });
-app.get('/speculation-2', (req, res) => {
+app.get('/speculation-target-1', (req, res) => {
   res.set("Cache-Control", "public,max-age=120");
   setTimeout(() => {
-    res.sendFile(path.join(__dirname, "/pages/speculation-2.html"));
-  }, 2000);
+    res.sendFile(path.join(__dirname, "/pages/speculation-target-1.html"));
+  }, 3000);
 });
-app.get('/speculation-3', (req, res) => {
+app.get('/speculation-target-2', (req, res) => {
   res.set("Cache-Control", "public,max-age=120");
   setTimeout(() => {
-    res.sendFile(path.join(__dirname, "/pages/speculation-3.html"));
-  }, 2000);
+    res.sendFile(path.join(__dirname, "/pages/speculation-target-2.html"));
+  }, 3000);
 });
 
 

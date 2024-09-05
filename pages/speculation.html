@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <h1>Speculation Start</h1>
+        <p>This page has 2 links to other pages on the same domain.</p>
+        <p>Each of the 2 linked pages has a artificial server time of 3 seconds.</p>
+        <p>Each of the 2 linked pages has a cache-control set to "public, max-age=120, no-store"</p>
+
+        <p>To successfully test Speculation:</p>
+        <ul>
+            <li>Enable Speculation on this zone</li>
+            <li>Switch off all Workers on this zone, First Party and User. This includes Zaraz, AMP, SXG</li>
+            <li>Open an incognito window</li>
+            <li>Load one of the pages below in a separate tab to load it into Cache</li>
+            <li>Then mousedown on one of the links below</li>
+            <li>The network tab should show a successful prefetch request</li>
+        </ul>
+        <div>
+            <a href="/speculation-target-1">Speculation Target 1</a>
+            <a href="/speculation-target-2">Speculation Target 2</a>
+        </div>
+    </body>
+</html>
